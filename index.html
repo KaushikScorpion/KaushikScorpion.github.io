@@ -97,7 +97,7 @@ function FBLogout(){
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
-<button onclick="FBLogout()" >Logout</button>
+<button onclick="onclick="javascript:FB.logout(function() { window.location.reload() }); return false;"" >Logout</button>
 <div id="status">
 </div>
 
