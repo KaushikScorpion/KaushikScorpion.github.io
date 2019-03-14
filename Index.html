@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style>
+      /*
+        body {
+            background-image: url('Kaushik_BG.JPG');
+            background-size: cover;
+            height: 100%;
+            background-repeat: no-repeat;
+            }
+        
+*/
+        #hero .jumbotron{
+            background: initial;
+        }
+        #hero{
+            background-image: url('Kaushik_BG.JPG');
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            height: 100vh;
+            z-index: -10;
+        }
+        #hero-overlay{
+            position: absolute;
+            top:0;
+            bottom: 0;
+            height:100%;
+            width:100%;
+            z-index:-5;
+            background-color:rgba(255, 255, 255, 0.5);
+        }
+        </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link 3</a>
+        </li>
+    </ul>
+</nav>
+
+<div id="hero">
+    <div id="hero-overlay">
+        <div class="jumbotron text-center img-fluid">
+            <h1>Kaushik Sampath</h1>
+            <p>Full Stack Developer & DevOps Engineer</p> 
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                <h3>Column 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-4">
+                <h3>Column 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+                <div class="col-sm-4">
+                <h3>Column 3</h3>        
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
