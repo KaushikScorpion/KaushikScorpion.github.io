@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="site.js"></script>
   <style>
       /*
         body {
@@ -40,6 +41,20 @@
             z-index:-5;
             background-color:rgba(255, 255, 255, 0.5);
         }
+
+         .card{
+            background-color: #ffffff80;
+         }
+
+         .project-cards-row{
+             margin-bottom: 5px;
+         }
+
+         .hidden {
+            display: none;
+         }
+
+
         </style>
 </head>
 <body>
@@ -60,30 +75,43 @@
 <div id="hero">
     <div id="hero-overlay">
         <div class="jumbotron text-center img-fluid">
-            <h1>Kaushik Sampath</h1>
+            <h1>FirstName LastName</h1>
             <p>Full Stack Developer & DevOps Engineer</p> 
         </div>
         
         <div class="container">
             <div class="row">
-                <div class="col-sm-4">
-                <h3>Column 1</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                <h3>Column 2</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
-                <div class="col-sm-4">
-                <h3>Column 3</h3>        
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-                </div>
+                <div class=""> <h2> Projects </h2> </div>
+            </div>
+            <div class="row" id="ProjectsCards">
+            
             </div>
         </div>
     </div>
 </div>
+
+<!-- Templating-->
+<div id="ProjectCardTemplate" class="hidden">
+    <div class="col-sm-4">
+        <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">{{title}}</h4>
+                  <p class="card-text">{{description}}</p>
+                  {{ProjectTags}}
+                </div>
+        </div>
+    </div>
+</div>
+
+<div id="ProjectTag">
+    <span class="badge badge-{{badge-color}}">{{tagName}}</span>
+</div>
+
+<div id="ProjectCardsRow">
+        <div class='row project-cards-row'>{{projectCardsRow}}</div>
+</div>
+
+<!--End of Templating-->
+
 </body>
 </html>
