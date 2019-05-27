@@ -16,9 +16,9 @@
             background-size: cover;
             height: 100%;
             background-repeat: no-repeat;
-            }
-        
-*/
+            }    
+     */
+
         #hero .jumbotron{
             background: initial;
         }
@@ -30,7 +30,7 @@
             top: 0;
             bottom: 0;
             height: 100vh;
-            z-index: -10;
+            /*z-index: -10;*/
         }
         #hero-overlay{
             position: absolute;
@@ -38,7 +38,7 @@
             bottom: 0;
             height:100%;
             width:100%;
-            z-index:-5;
+            /*z-index:-5;*/
             background-color:rgba(255, 255, 255, 0.5);
         }
 
@@ -73,7 +73,7 @@
 </nav>
 
 <div id="hero">
-    <div id="hero-overlay">
+    <div id="hero-overlay"><!--   id="hero-overlay" -->
         <div class="jumbotron text-center img-fluid">
             <h1>FirstName LastName</h1>
             <p>Full Stack Developer & DevOps Engineer</p> 
@@ -96,7 +96,7 @@
         <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">{{title}}</h4>
-                  <p class="card-text">{{description}}</p>
+                  <p class="card-text" data-toggle="popover" data-trigger="hover" data-content="{{description}}">{{description}}</p>
                   {{ProjectTags}}
                 </div>
         </div>

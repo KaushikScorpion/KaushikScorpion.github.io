@@ -64,7 +64,7 @@ function BuildProjectsCards(){
 
 function ReplaceText(template,s1,s2,unhide=false)
 {
-    var html =  template.replace(s1,s2);
+    var html =  template.replace(new RegExp(s1, 'g'), s2);
     if(unhide==false)
     {
         html = html.replace("{{hidden}}","hidden");
@@ -80,4 +80,7 @@ function ReplaceText(template,s1,s2,unhide=false)
 $( document ).ready(function() {
     console.log( "Page ready!" );
     BuildProjectsCards();
+    $('[data-toggle="popover"]').popover();  
 });
+
+
