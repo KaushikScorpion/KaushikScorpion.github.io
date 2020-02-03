@@ -1,34 +1,43 @@
 var BadgeBSColors = {
     "LeadSquared" : "primary",
     "CIT" : "danger",
-    "GitHub" : "success"
+    "GitHub" : "success",
+    "CYR3CON" : "dark",
+    "ASU" : "warning",
+    "Python" : "primary",
+    "JavaScript" : "danger",
+    "HTML/CSS" : "success",
+    "AWS APIGateway" : "info",
+    "Bootstrap" : "secondary",
+    "AWS Lambda" : "info",
+    "AWS Ec2" : "warning",
+    "C#" : "warning",
+    "AWS .NET SDK" : "primary",
+    "JavaScript" : "danger",
+    ".NET" : "primary",
+    "Microsoft Bot Framework" : "info",
+    "Firebase" : "secondary",
 }
 
 var Projects = [{
-    Title : "CMS1",
-    Description: "A ready-to-host Customer Management System built using ASP.NET and MySQL.",
-    Tags: ["LeadSquared","CIT","GitHub"]
+    Title : "Ec2 Easy Backup Service",
+    Description: "A web app integrated with Mattermost to manage ec2 backups easily. The app provisions new backups by schedule and clears backups by retention policy.",
+    Tags: ["Python", "JavaScript", "HTML/CSS", "Bootstrap", "AWS APIGateway", "AWS Ec2", "AWS Lambda"],
+    CompanyTags: ["CYR3CON"]
 },
 {
-    Title : "CMS2",
-    Description: "A ready-to-host Customer Management System built using ASP.NET and MySQL.",
-    Tags: ["LeadSquared","CIT"]
+    Title : "AWS Health Notifiyer",
+    Description: "A service that queries health metrics for Ec2s, Elastic Beanstalk Apps, SQS and builds a periodic graphic report and presents it to stakeholders by email.",
+    Tags: ["C#","AWS .NET SDK", "HTML/CSS", "AWS Lambda"],
+    CompanyTags: ["CYR3CON"]
 },
 {
-    Title : "CMS3",
-    Description: "A ready-to-host Customer Management System built using ASP.NET and MySQL.",
-    Tags: ["LeadSquared","CIT"]
-},
-{
-    Title : "CMS4",
-    Description: "A ready-to-host Customer Management System built using ASP.NET and MySQL.",
-    Tags: ["LeadSquared","CIT"]
-},
-{
-    Title : "CMS5",
-    Description: "A ready-to-host Customer Management System built using ASP.NET and MySQL.",
-    Tags: ["LeadSquared","CIT"]
-}];
+    Title : "LsqBot",
+    Description: "LeadSquared’s private skype bot built with the MS Bot Framework, for hassle free agile deployments",
+    Tags: ["C#",".NET", "Microsoft Bot Framework", "Firebase"],
+    CompanyTags: ["LeadSquared"]
+}
+];
 
 
 function BuildProjectsCards(){
@@ -47,12 +56,22 @@ function BuildProjectsCards(){
             ProjectCardTlt =  ReplaceText(ProjectCardTlt,"{{title}}",Projects[CardNum].Title);
             ProjectCardTlt =  ReplaceText(ProjectCardTlt,"{{description}}",Projects[CardNum].Description);
             var ProjectTags = "";
+           
             for(k=0;k<Projects[CardNum].Tags.length;k++)
             {
                 ProjectTags = ProjectTags + ReplaceText($("#ProjectTag").html(),"{{tagName}}",Projects[CardNum].Tags[k],true);
                 ProjectTags = ReplaceText(ProjectTags,"{{badge-color}}",BadgeBSColors[Projects[CardNum].Tags[k]]);
             }
-            ProjectCardTlt =  ReplaceText(ProjectCardTlt,"{{ProjectTags}}", ProjectTags);
+
+            var CompanyTags = "";
+            for(k=0;k<Projects[CardNum].CompanyTags.length;k++)
+            {
+                CompanyTags = CompanyTags + ReplaceText($("#ProjectTag").html(),"{{tagName}}",Projects[CardNum].CompanyTags[k],true);
+                CompanyTags = ReplaceText(CompanyTags,"{{badge-color}}",BadgeBSColors[Projects[CardNum].CompanyTags[k]]);
+            }
+
+            ProjectCardTlt =  ReplaceText(ProjectCardTlt,"{{ProjectTags}}", "Tech: "+ProjectTags);
+            ProjectCardTlt =  ReplaceText(ProjectCardTlt,"{{CompanyTags}}", "Org: " + CompanyTags);
             CardsRow =  CardsRow + ProjectCardTlt;
         }
         CardsRow = ReplaceText($("#ProjectCardsRow").html(),"{{projectCardsRow}}", CardsRow);

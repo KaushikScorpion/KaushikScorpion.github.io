@@ -64,9 +64,11 @@
         <li class="nav-item">
         <a class="nav-link nav-item active"  href="#">Home</a>
         </li>
+        <!-- Link2 commented out
         <li class="nav-item">
         <a class="nav-link" href="index.html">Link 2</a>
         </li>
+                -->
         <li class="nav-item">
         <a class="nav-link" href="resume.html">Resume</a>
         </li>
@@ -77,13 +79,12 @@
     <div id="hero-overlay"><!--   id="hero-overlay" -->
         <div class="jumbotron text-center img-fluid">
             <h1>Kaushik Sampath</h1>
-            <p>Full Stack Developer & DevOps Engineer</p> 
-            <p>Site Under Construction.Please visit later!</p>
+            <p>Full Stack .NET Developer + AWS</p> 
         </div>
         
         <div class="container">
             <div class="row">
-                <div class=""> <h2> Projects </h2> </div>
+                <div class=""> <h2> Project Portfolio </h2> </div>
             </div>
             <div class="row" id="ProjectsCards">
             
@@ -100,6 +101,8 @@
                   <h4 class="card-title">{{title}}</h4>
                   <p class="card-text" data-toggle="popover" data-trigger="hover" data-content="{{description}}">{{description}}</p>
                   {{ProjectTags}}
+                  <br>
+                  {{CompanyTags}}
                 </div>
         </div>
     </div>
