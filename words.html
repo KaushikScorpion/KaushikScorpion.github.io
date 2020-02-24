@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 </head>
 <body>
     <table id="example" class="display" width="100%"></table>
@@ -33,15 +34,36 @@
               }
           }
 
+
+         
+
             $('#example').DataTable( {
                 ordering: false,
+                responsive: true,
                 data: ds,
                 columns: [
                     { title: "Word" },
                     { title: "Pronunciation" }
                 ]
             } );
+
+            var lastseenpage = localStorage.getItem('lastseenpage');
+
+            if(lastseenpage!=null)
+            {
+              var dt = $("#example").DataTable();
+              dt.page(parseInt(lastseenpage)-1).draw('page');
+            }
+
+     
+            $( document ).delegate( ".paginate_button", "click",function() {
+              console.log("hi");
+              localStorage.setItem('lastseenpage',$(".current").html());
+            });
+
         } );
         
         
+     
+
         </script>
